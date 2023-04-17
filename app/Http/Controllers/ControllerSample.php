@@ -9,6 +9,11 @@ class ControllerSample extends Controller
     return "Hello $name";
   }
 
+  public function sum($a, $b)
+  {
+    return "A + B = " . $a + $b;
+  }
+
 }
 
 ?>

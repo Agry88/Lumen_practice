@@ -29,5 +29,6 @@ $router->get('/hellosomeone', function () use ($name) {
 });
 
 $router->get('/ControllerSample/{name}', "ControllerSample@hello");
+$router->get('/ControllerSample/{a}/{b}', "ControllerSample@sum");
 
 $router->get('/getAllUsers', "User@getAllUsers");
