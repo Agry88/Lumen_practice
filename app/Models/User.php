@@ -19,4 +19,17 @@ class User
     return $response;
   }
 
+  public function addUser($email, $password)
+  {
+    $sql = "insert into user (email, password) values (:email, :password)";
+    $response = DB::insert(
+      $sql,
+      array(
+        "email" => $email,
+        "password" => $password
+      )
+    );
+    return $response;
+  }
+
 }

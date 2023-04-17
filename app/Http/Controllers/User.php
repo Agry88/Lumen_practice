@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User as UserModel;
+use Illuminate\Http\Request;
 
 class User extends Controller
 {
@@ -19,6 +20,13 @@ class User extends Controller
   public function getUser($id)
   {
     return $this->userModel->showUser($id);
+  }
+
+  public function newUser(Request $request)
+  {
+    $email = $request->input("email");
+    $password = $request->input("password");
+    return $this->userModel->addUser($email, $password);
   }
 
 }
