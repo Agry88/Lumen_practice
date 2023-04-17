@@ -32,4 +32,18 @@ class User
     return $response;
   }
 
+  public function updateUser($id, $email, $password)
+  {
+    $sql = "update user set email=:email, password=:password where id=:id";
+    $response = DB::update(
+      $sql,
+      array(
+        "email" => $email,
+        "password" => $password,
+        "id" => $id
+      )
+    );
+    return $response;
+  }
+
 }

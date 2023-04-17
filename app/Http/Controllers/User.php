@@ -29,4 +29,12 @@ class User extends Controller
     return $this->userModel->addUser($email, $password);
   }
 
+  public function updateUser(Request $request)
+  {
+    $id = $request->input("id");
+    $email = $request->input("email");
+    $password = $request->input("password");
+    return $this->userModel->updateUser($id, $email, $password);
+  }
+
 }
