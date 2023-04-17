@@ -12,4 +12,11 @@ class User
     return $response;
   }
 
+  public function showUser($id)
+  {
+    $sql = "select * from user where id=?";
+    $response = DB::select($sql, [$id]);
+    return $response;
+  }
+
 }

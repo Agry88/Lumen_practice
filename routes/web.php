@@ -32,3 +32,4 @@ $router->get('/ControllerSample/{name}', "ControllerSample@hello");
 $router->get('/ControllerSample/{a}/{b}', "ControllerSample@sum");
 
 $router->get('/getAllUsers', "User@getAllUsers");
+$router->get('/getUser/{id}', "User@getUser");
