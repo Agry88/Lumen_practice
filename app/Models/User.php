@@ -46,4 +46,16 @@ class User
     return $response;
   }
 
+  public function deleteUser($id)
+  {
+    $sql = "delete from user where id=:id";
+    $response = DB::delete(
+      $sql,
+      array(
+        "id" => $id
+      )
+    );
+    return $response;
+  }
+
 }

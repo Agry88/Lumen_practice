@@ -36,5 +36,10 @@ class User extends Controller
     $password = $request->input("password");
     return $this->userModel->updateUser($id, $email, $password);
   }
+  public function deleteUser(Request $request)
+  {
+    $id = $request->input("id");
+    return $this->userModel->deleteUser($id);
+  }
 
 }
