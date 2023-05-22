@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class ExampleMiddleware
+class CheckPrevilege
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,12 @@ class ExampleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        echo "Global Middleware is here";
-        return $next($request);
+        $role = $request->header('role');
+        $isAuthorized = ($role == "admin");
+        if($isAuthorized) {
+            return $next($request);
+        } else {
+            return response("權限不足", 401);
+        }
     }
 }
