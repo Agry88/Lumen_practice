@@ -54,7 +54,15 @@ class AuthMiddleware
                 break;
 
             case 'register':
-                echo "執行註冊動作";
+                $user_email = $request->input('user_email');
+                $user_password = $request->input('user_password');
+
+                $user = $userModel->showUserByEmail($user_email);
+                if ($user) {
+                    return response("此信箱已被註冊", 400);
+                }
+                $newUser = $userModel->addUser($user_email, $user_password);
+                return response("註冊成功", 200);
                 break;
             
             default:

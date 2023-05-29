@@ -19,6 +19,13 @@ class User
     return $response;
   }
 
+  public function showUserByEmail($email)
+  {
+    $sql = "select * from user where email=?";
+    $response = DB::select($sql, [$email]);
+    return $response;
+  }
+
   public function addUser($email, $password)
   {
     $sql = "insert into user (email, password) values (:email, :password)";
