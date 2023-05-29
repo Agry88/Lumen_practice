@@ -46,6 +46,9 @@ class AuthMiddleware
             case 'doLogin':
                 $user_id = $request->input('user_id');
                 $user = $userModel->showUser($user_id);
+                if (!$user) {
+                    return response("查無此帳號", 404);
+                }
                 $token = $this->getToken($user_id);
                 return response($token,200);
                 break;

@@ -36,3 +36,10 @@ $router->get('/getUser/{id}', "User@getUser");
 $router->post('/newUser', "User@newUser");
 $router->put('/updateUser', "User@updateUser");
 $router->delete('/deleteUser', "User@deleteUser");
+
+$router->post('/testRouteMiddleware', [
+  'middleware' => 'example',
+  function () {
+    return "function here";
+  }
+]);
