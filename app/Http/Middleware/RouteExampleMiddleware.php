@@ -13,9 +13,9 @@ class RouteExampleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $args)
     {
-        echo "Global Middleware is here\n";
+        echo "Route Middleware is here with args: $args\n";
         return $next($request);
     }
 }

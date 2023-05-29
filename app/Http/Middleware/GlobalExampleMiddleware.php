@@ -15,7 +15,7 @@ class GlobalExampleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        echo "Route Middleware is here\n";
+        echo "Global Middleware is here\n";
         return $next($request);
     }
 }

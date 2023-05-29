@@ -31,7 +31,10 @@ $router->get('/hellosomeone', function () use ($name) {
 $router->get('/ControllerSample/{name}', "ControllerSample@hello");
 $router->get('/ControllerSample/{a}/{b}', "ControllerSample@sum");
 
-$router->get('/getAllUsers', "User@getAllUsers");
+$router->get('/getAllUsers', [
+  'middleware' => ['example:myargs'],
+  'uses' => "User@getAllUsers"
+]);
 $router->get('/getUser/{id}', "User@getUser");
 $router->post('/newUser', "User@newUser");
 $router->put('/updateUser', "User@updateUser");
