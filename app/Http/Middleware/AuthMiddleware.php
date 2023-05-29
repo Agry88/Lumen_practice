@@ -44,12 +44,16 @@ class AuthMiddleware
         $userModel = new UserModel;
         switch ($request->path()) {
             case 'doLogin':
-                $user_id = $request->input('user_id');
-                $user = $userModel->showUser($user_id);
+                $user_email = $request->input('user_email');
+                $user_password = $request->input('user_password');
+                $user = $userModel->showUserByEmail($user_email);
                 if (!$user) {
                     return response("查無此帳號", 404);
                 }
-                $token = $this->getToken($user_id);
+                if ($user[0]->password != $user_password) {
+                    return response("密碼錯誤", 400);
+                }
+                $token = $this->getToken($user[0]->id);
                 return response($token,200);
                 break;
 
