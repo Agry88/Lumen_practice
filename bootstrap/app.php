@@ -81,6 +81,7 @@ $app->middleware([
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
     'example' => App\Http\Middleware\RouteExampleMiddleware::class,
+    'EnsureRole' => App\Http\Middleware\EnsureRole::class,
 ]);
 
 /*

@@ -65,4 +65,16 @@ class User
     return $response;
   }
 
+  public function getUserRoles($id)
+  {
+    $sql = "select role.name from user_role, role where user_id=:id and role.id=user_role.role_id";
+    $response = DB::select(
+      $sql,
+      array(
+        "id" => $id
+      )
+    );
+    return $response;
+  }
+
 }

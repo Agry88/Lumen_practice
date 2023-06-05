@@ -32,7 +32,7 @@ $router->get('/ControllerSample/{name}', "ControllerSample@hello");
 $router->get('/ControllerSample/{a}/{b}', "ControllerSample@sum");
 
 $router->get('/getAllUsers', [
-  'middleware' => ['example:myargs'],
+  'middleware' => ['example:myargs', 'EnsureRole:admin,user'],
   'uses' => "User@getAllUsers"
 ]);
 $router->get('/getUser/{id}', "User@getUser");
